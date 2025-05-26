@@ -1,0 +1,44 @@
+# Identifying Potential Security Risks from Open Ports
+
+
+1. Port 53 – DNS (Domain Name System)
+This port is used to convert domain names into IP addresses. 
+If it’s open to the internet, attackers might misuse it for DNS amplification attacks. 
+Solution : it's safer to allow only internal devices to use this service and block external access unless it’s really needed.
+
+
+2. Port 80 – HTTP (HyperText Transfer Protocol)
+This is used for web traffic, but the problem is it doesn’t encrypt data. That means someone can easily intercept and read the information. 
+Solution: It’s better to use HTTPS (secure version) instead, and close port 80 if it’s not required.
+
+
+3. Port 135 – Microsoft RPC (Remote Procedure Call)
+Windows uses this port for communication between its services. However, attackers can try to use it for remote attacks or gathering information. 
+Solution: It should be blocked on public networks and only allowed internally if needed.
+
+
+4. Port 139 – NetBIOS
+This is usually used for sharing files over a local network. But it can be risky because attackers might be able to see shared folders or even usernames.
+Solution: When file sharing is not in use we should keep it turn off.
+
+5. Port 445 – SMB (Server Message Block)
+Another port related to file sharing in Windows. It's known to be vulnerable and was used in the WannaCry ransomware attack. 
+Solution: To stay safe, we should keep it blocked unless we are using it in a secure, private network.
+
+
+6. Port 902 – VMware Server Console Port
+This port is used by VMware to manage virtual machines. If someone gets access to it, they might be able to control the VMs. 
+Solution: It should only be accessible within trusted IP ranges and not exposed publicly.
+
+
+7. Port 912 – VMware Remote Console (Apex)
+Similar to port 902, this one is also used by VMware for remote access. It could be dangerous if it's left open to everyone. 
+Solution: It should only be accessible within trusted IP ranges and not exposed publicly and limiting its use to internal systems only.
+
+
+8. Port 2869 – ICSLAP (used by UPnP – Universal Plug and Play)
+UPnP is meant to help devices find each other automatically, but it can also open ports without asking the user. 
+That can be risky because it might expose services to the internet. 
+Solution : It's best to disable UPnP unless it's really needed.
+
+
